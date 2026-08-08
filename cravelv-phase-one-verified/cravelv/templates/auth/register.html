@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}Create your workspace · CraveLV{% endblock %}
+{% block body_class %}auth-page{% endblock %}
+{% block body %}
+<main class="auth-shell"><section class="auth-panel"><a class="brand" href="/"><span class="brand-mark">C</span> CraveLV</a><div class="auth-copy"><div class="eyebrow"><span></span> Your growth workspace</div><h1>Build a brand people remember.</h1><p>Start with the tools to plan, publish, connect, and book more business.</p></div><div class="auth-benefits"><span>✓ Brand-aware content tools</span><span>✓ Marketing calendar</span><span>✓ Catering lead pipeline</span></div></section>
+<section class="auth-form"><form method="post"><h2>Create your workspace</h2><p>Already have an account? <a href="{{ url_for('auth.login') }}">Sign in</a></p>{% include 'partials/flashes.html' %}<div class="field-row"><label>Your name<input name="name" required autocomplete="name" placeholder="Jasmine Lee"></label><label>Business name<input name="business" required placeholder="Streetbird Kitchen"></label></div><label>Email address<input type="email" name="email" required autocomplete="email" placeholder="you@business.com"></label><label>Password<input type="password" name="password" minlength="8" required autocomplete="new-password" placeholder="At least 8 characters"></label><button class="button full" type="submit">Create workspace <span>→</span></button><small>By continuing, you agree to CraveLV’s terms and privacy policy.</small></form></section></main>
+{% endblock %}
+
