@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block body_class %}app-page{% endblock %}
+{% block body %}
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar"><div class="sidebar-head"><a class="brand" href="{{ url_for('main.dashboard') }}"><span class="brand-mark">C</span> CraveLV</a><button class="mobile-close" data-menu-close aria-label="Close menu">×</button></div>
+    <div class="workspace-switch"><span class="workspace-avatar">{{ g.organization.name[0] }}</span><div><strong>{{ g.organization.name }}</strong><small>{{ g.organization.plan|title }} workspace</small></div><span>⌄</span></div>
+    <nav class="side-nav"><small>CREATE & PUBLISH</small><a class="{{ 'active' if request.endpoint == 'main.dashboard' }}" href="{{ url_for('main.dashboard') }}"><span>⌂</span> Overview</a><a class="{{ 'active' if request.endpoint == 'main.studio' }}" href="{{ url_for('main.studio') }}"><span>✦</span> Content studio</a><a class="{{ 'active' if request.endpoint == 'main.media_library' }}" href="{{ url_for('main.media_library') }}"><span>▧</span> Media library</a><a class="{{ 'active' if request.endpoint == 'main.calendar' }}" href="{{ url_for('main.calendar') }}"><span>□</span> Calendar & queue</a><small>GROWTH</small><a class="{{ 'active' if request.endpoint == 'main.leads' }}" href="{{ url_for('main.leads') }}"><span>◎</span> Leads</a><a class="{{ 'active' if request.endpoint == 'main.engagement' }}" href="{{ url_for('main.engagement') }}"><span>◇</span> Engagement</a><small>BUSINESS</small><a class="{{ 'active' if request.endpoint == 'main.brand' }}" href="{{ url_for('main.brand') }}"><span>◐</span> Brand profile</a><a class="{{ 'active' if request.endpoint == 'main.integrations' }}" href="{{ url_for('main.integrations') }}"><span>↔</span> Connections</a></nav>
+    <div class="sidebar-foot"><div class="user-card"><span>{{ current_user.name[0] }}</span><div><strong>{{ current_user.name }}</strong><small>{{ current_user.email }}</small></div></div><form action="{{ url_for('auth.logout') }}" method="post"><button class="logout" aria-label="Sign out">↗</button></form></div>
+  </aside>
+  <div class="app-content"><header class="topbar"><button class="mobile-menu" data-menu-open aria-label="Open menu">☰</button><div><small>{% block eyebrow %}CRAVELV WORKSPACE{% endblock %}</small><strong>{% block header_title %}{% endblock %}</strong></div><div class="top-actions"><button class="icon-button" aria-label="Notifications">●</button><span class="user-dot">{{ current_user.name[0] }}</span></div></header>
+    <main class="page-content">{% include 'partials/flashes.html' %}{% block app_content %}{% endblock %}</main>
+  </div>
+</div><div class="menu-overlay" data-menu-close></div>
+{% endblock %}

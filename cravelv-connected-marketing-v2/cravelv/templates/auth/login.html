@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}Sign in · CraveLV{% endblock %}
+{% block body_class %}auth-page{% endblock %}
+{% block body %}
+<main class="auth-shell"><section class="auth-panel"><a class="brand" href="/"><span class="brand-mark">C</span> CraveLV</a><div class="auth-copy"><div class="eyebrow"><span></span> Welcome back</div><h1>Keep the momentum going.</h1><p>Your content, customers, and next opportunities are waiting.</p></div><blockquote>“CraveLV gives me one place to stay on top of the business side without pulling me away from the truck.”<footer>— Founder, Vegas food truck</footer></blockquote></section>
+<section class="auth-form"><form method="post"><h2>Sign in to CraveLV</h2><p>New here? <a href="{{ url_for('auth.register') }}">Create your workspace</a></p>{% include 'partials/flashes.html' %}<label>Email address<input type="email" name="email" required autocomplete="email" placeholder="you@business.com"></label><label>Password<input type="password" name="password" required autocomplete="current-password" placeholder="Your password"></label><label class="check"><input type="checkbox" name="remember"> Keep me signed in</label><button class="button full" type="submit">Sign in <span>→</span></button></form></section></main>
+{% endblock %}
+
